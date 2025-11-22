@@ -17,7 +17,7 @@ public class Main {
         //System.out.println("----------------------");
         //System.out.println("Consulta 2");
         Paciente paciente2 = new Paciente(2,"Jorge");
-        Data data2 = new Data(11,11,2021);
+        Data data2 = new Data(11,11,3021);
         Consulta consulta2 = new Consulta(2,data2,medico2,paciente2,11.11);
         //System.out.println(consulta2);
         Paciente paciente3 = new Paciente(3,"Jorge");
@@ -31,14 +31,18 @@ public class Main {
         //agenda.removerConsulta(1);
         //System.out.println("==========");
 //        agenda.mostraAgenda();
-        Consulta vetorConsultasMedico[] = agenda.buscarConsultaMedico("Marcia");
-        System.out.println("-----------------");
-        //for(int i=0; i<vetorConsultasMedico.length ; i++){
-        //    System.out.println(vetorConsultasMedico[i]);
-        //    System.out.println("-----------------");
-        //}
+        Consulta vetorConsultasData[] = agenda.buscarConsultaData(11,11,3021);
+        //System.out.println("-----------------");
+        for(int i=0; i<vetorConsultasData.length ; i++){
+            System.out.println(vetorConsultasData[i]);
+            System.out.println("-----------------");
+        }
         //System.out.println(agenda.buscarConsultaPaciente(3));
 //        System.out.println(agenda.buscarConsultaPorNro(3));
+
+
+
+
     }
 
 }

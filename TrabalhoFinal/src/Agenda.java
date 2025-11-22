@@ -11,7 +11,7 @@ public class Agenda {
     public boolean adicionarConsulta(Consulta consulta){
         if(this.indice < 40){
             this.consultas[this.indice] = consulta;
-            this.indice += 1;
+            this.indice++;
             return true;
         }
         return false;
@@ -19,7 +19,7 @@ public class Agenda {
     public boolean removerConsulta(int nro){
         int posicao = buscaPosicao(nro);
         if(posicao != -1){
-            for (int i = posicao; i < this.indice; i++) {
+            for (int i = posicao; i < this.indice-1; i++) {
                 this.consultas[i] = this.consultas[i + 1];
             }
             this.consultas[this.indice - 1] = null;
@@ -37,7 +37,7 @@ public class Agenda {
         return null;
     }
     public int buscaPosicao(int nro){
-        for(int i=0; i<=this.indice; i++){
+        for(int i=0; i<this.indice; i++){
             if(this.consultas[i].getNro() == nro){
                 return i;
             }
@@ -48,7 +48,7 @@ public class Agenda {
         int total = 0;
         for(int i =0; i<this.indice; i++){
             if(this.consultas[i].getMedico().getNome().equals(nomeMedico)){
-                total += 1;
+                total ++;
             }
         }
         Consulta consultasMedico[] = new Consulta[total];
@@ -68,6 +68,25 @@ public class Agenda {
             }
         }
         return null;
+    }
+    public Consulta[] buscarConsultaData(int dia, int mes, int ano){
+        int total = 0;
+        for(int i=0; i<this.indice; i++){
+            Data data = this.consultas[i].getData();
+            if(data.getDia()==dia && data.getMes()==mes && data.getAno()==ano){
+                total ++;
+            }
+        }
+        Consulta consultasData[] = new Consulta[total];
+        int j = 0;
+        for(int i=0; i<this.indice; i++){
+            Data data = this.consultas[i].getData();
+            if(data.getDia()==dia && data.getMes()==mes && data.getAno()==ano){
+                consultasData[j] = this.consultas[i];
+                j++;
+            }
+        }
+        return consultasData;
     }
 
 
