@@ -1,19 +1,19 @@
 public class Consulta {
-    private int nro = 0;
+    private int nro;
     private Data data;
     private Medico medico;
     private Paciente paciente;
     private Double valor;
 
     public Consulta(){
-        this.nro += 1;
+        this.nro = 0;
         this.data = null;
         this.medico = null;
         this.paciente = null;
         this.valor = 0.0;
     }
-    public Consulta(Data data, Medico medico, Paciente paciente, Double valor){
-        this.nro += 1;
+    public Consulta(int nro, Data data, Medico medico, Paciente paciente, Double valor){
+        this.nro = nro;
         this.data = data;
         this.medico = medico;
         this.paciente = paciente;
@@ -54,9 +54,9 @@ public class Consulta {
 
     public String toString(){
         return ("Número: " + this.nro+
-                "\nData: " + this.data+
-                "\nMédico: " + this.medico+
-                "\nPaciente: " + this.paciente+
+                "\n" + this.data+
+                "\nMédico:\n" + this.medico+
+                "\nPaciente:\n" + this.paciente+
                 "\nValor: " + this.valor);
     }
 

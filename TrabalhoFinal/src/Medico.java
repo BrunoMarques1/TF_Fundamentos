@@ -36,7 +36,7 @@ public class Medico {
     }
 
     public String toString(){
-        return ("CRM: "+ this.crm +"\nNome: "+ this.nome +"\nEspecialidade: "+ this.especialidade);
+        return ("   CRM: "+ this.crm +"\n   Nome: "+ this.nome +"\n   Especialidade: "+ this.especialidade);
     }
 
 

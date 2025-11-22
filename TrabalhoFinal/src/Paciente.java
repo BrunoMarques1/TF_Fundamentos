@@ -26,6 +26,6 @@ public class Paciente {
     }
 
     public String toString(){
-        return ("Código: " + this.codigo + "\nNome: " + this.nome);
+        return ("   Código: " + this.codigo + "\n   Nome: " + this.nome);
     }
 }
