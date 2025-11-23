@@ -98,7 +98,12 @@ public class Agenda {
         return soma;
     }
     public void alterarMedico(int nro, Medico medico){
-        this.consultas[buscaPosicao(nro)].setMedico(medico);
+        if(buscaPosicao(nro) == -1){
+            System.out.println("Número de consulta não encontrado");
+        }else{
+            this.consultas[buscaPosicao(nro)].setMedico(medico);
+        }
+
     }
     public Consulta buscarConsultaMaisBarata(){
         Consulta menor = this.consultas[0];
