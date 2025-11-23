@@ -88,9 +88,27 @@ public class Agenda {
         }
         return consultasData;
     }
-
-
-
+    public double buscarValorConsultasPorEspecialidadeMedica(String especialidade){
+        double soma = 0;
+        for(int i=0; i<this.indice; i++){
+            if(this.consultas[i].getMedico().getEspecialidade().equals(especialidade)){
+                soma += this.consultas[i].getValor();
+            }
+        }
+        return soma;
+    }
+    public void alterarMedico(int nro, Medico medico){
+        this.consultas[buscaPosicao(nro)].setMedico(medico);
+    }
+    public Consulta buscarConsultaMaisBarata(){
+        Consulta menor = this.consultas[0];
+        for(int i=0; i<this.indice; i++){
+            if(this.consultas[i].getValor() < menor.getValor()){
+                menor = this.consultas[i];
+            }
+        }
+        return menor;
+    }
     public void mostraAgenda(){
         for(int i=0; i < this.indice; i++){
             System.out.println("--------------------");
@@ -99,7 +117,4 @@ public class Agenda {
         System.out.println("--------------------");
 
     }
-
-
-
 }
